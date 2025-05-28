@@ -40,7 +40,7 @@ public class SearchEngine {
 
     public void showResults(){
         for (Searchable searchable : searchables){
-            System.out.println(searchable);
+            System.out.println(searchable.getStringRepresentation());
         }
     }
 
