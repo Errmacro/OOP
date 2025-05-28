@@ -15,16 +15,17 @@ public class SearchEngine {
         for (Searchable searchable : searchables) {
             if (searchable != null) {
                 String searchTerm = searchable.getSearchTerm();
-                if (searchTerm.contains(keyword)) {
+                if (searchTerm.toLowerCase().contains(keyword.toLowerCase())) {
                     if (count < searchResult.length) {
-                        searchResult[count] = searchTerm;
+                        searchResult[count] = searchable.getStringRepresentation();
                         count++;
+                        System.out.println(searchable.getStringRepresentation());
                     } else {
                         break;
                     }
                 }
             } else {
-                System.out.println("Ничего не найдено");
+                System.out.println(" ");
             }
         }
         return searchResult;
