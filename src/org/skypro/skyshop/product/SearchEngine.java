@@ -38,7 +38,7 @@ public class SearchEngine {
         }
     }
 
-    public void showResults() {
+    public void showSearchable() {
         for (Searchable searchable : searchables) {
             if (searchable != null) {
                 System.out.println(searchable.getStringRepresentation());
