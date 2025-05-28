@@ -13,17 +13,20 @@ public class SearchEngine {
         String[] searchResult = new String[5];
         int count = 0;
         for (Searchable searchable : searchables) {
-            String searchTerm = searchable.getSearchTerm();
-            if (searchTerm.contains(keyword)) {
-                if (count < searchResult.length) {
-                    searchResult[count] = searchTerm;
-                    count++;
-                } else {
-                    break;
+            if (searchable == null) {
+                System.out.println("Ничего не найдено");
+            } else {
+                String searchTerm = searchable.getSearchTerm();
+                if (searchTerm.contains(keyword)) {
+                    if (count < searchResult.length) {
+                        searchResult[count] = searchTerm;
+                        count++;
+                    } else {
+                        break;
+                    }
                 }
             }
-        }
-        return searchResult;
+        }return searchResult;
     }
 
     public void addToSearchable(Searchable searchable) {

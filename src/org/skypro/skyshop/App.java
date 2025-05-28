@@ -35,10 +35,6 @@ public class App {
         wishList.addToSearchable(livro);
         wishList.addToSearchable(cola);
 
-        String keyword = "Книга";
-        String [] searchResult = wishList.searchByKeyword(keyword);
-        for (String s : searchResult) {
-            System.out.println(s);
-        }
+        wishList.searchByKeyword("клей");
     }
 }

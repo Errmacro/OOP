@@ -3,6 +3,7 @@ package org.skypro.skyshop.product;
 public interface Searchable {
     String getSearchTerm();
     String getContentType();
-    default void getStringRepresentation(){
-    };
+    default String getStringRepresentation(){
+        return getSearchTerm()+", тип - "+getContentType();
+    }
 }
