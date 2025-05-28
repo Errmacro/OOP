@@ -35,6 +35,6 @@ public class App {
         wishList.addToSearchable(livro);
         wishList.addToSearchable(cola);
 
-        wishList.searchByKeyword("клей");
+        wishList.showResults();
     }
 }

@@ -15,18 +15,18 @@ public class SearchEngine {
         for (Searchable searchable : searchables) {
             if (searchable == null) {
                 System.out.println("Ничего не найдено");
-            } else {
-                String searchTerm = searchable.getSearchTerm();
-                if (searchTerm.contains(keyword)) {
-                    if (count < searchResult.length) {
-                        searchResult[count] = searchTerm;
-                        count++;
-                    } else {
-                        break;
-                    }
+            }
+            String searchTerm = searchable.getSearchTerm();
+            if (searchTerm.contains(keyword)) {
+                if (count < searchResult.length) {
+                    searchResult[count] = searchTerm;
+                    count++;
+                } else {
+                    break;
                 }
             }
-        }return searchResult;
+        }
+        return searchResult;
     }
 
     public void addToSearchable(Searchable searchable) {
@@ -35,6 +35,12 @@ public class SearchEngine {
             size++;
         } else {
             System.out.println("Массив переполнен");
+        }
+    }
+
+    public void showResults(){
+        for (Searchable searchable : searchables){
+            System.out.println(searchable);
         }
     }
 
