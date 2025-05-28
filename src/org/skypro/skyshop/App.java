@@ -36,5 +36,6 @@ public class App {
         wishList.addToSearchable(cola);
 
         wishList.showSearchable();
+        wishList.searchByKeyword("и");
     }
 }
