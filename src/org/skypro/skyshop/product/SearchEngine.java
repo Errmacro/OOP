@@ -38,10 +38,15 @@ public class SearchEngine {
         }
     }
 
-    public void showResults(){
-        for (Searchable searchable : searchables){
-            System.out.println(searchable.getStringRepresentation());
+    public void showResults() {
+        for (Searchable searchable : searchables) {
+            if (searchable != null) {
+                System.out.println(searchable.getStringRepresentation());
+            } else {
+                System.out.println("Пусто");
+            }
         }
     }
-
 }
+
+
