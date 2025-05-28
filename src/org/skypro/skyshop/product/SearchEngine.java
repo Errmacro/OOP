@@ -5,7 +5,7 @@ public class SearchEngine {
     private int size;
 
     public SearchEngine() {
-        this.searchables = new Searchable[8];
+        this.searchables = new Searchable[10];
         size = 0;
     }
 
