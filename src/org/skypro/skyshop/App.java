@@ -35,7 +35,7 @@ public class App {
         wishList.addToSearchable(livro);
         wishList.addToSearchable(cola);
 
-        wishList.showSearchable();
+        wishList.showSearchable();//Проверяю все ли добавлено в массив
         String keyword = "и";
         wishList.searchByKeyword(keyword);
     }
