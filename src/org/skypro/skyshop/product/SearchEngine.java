@@ -9,23 +9,20 @@ public class SearchEngine {
         size = 0;
     }
 
-    public String[] searchByKeyword(String keyword) {
-        String[] searchResult = new String[5];
+    public Searchable[] searchByKeyword(String keyword) {
+        Searchable[] searchResult = new Searchable[5];
         int count = 0;
         for (Searchable searchable : searchables) {
             if (searchable != null) {
                 String searchTerm = searchable.getSearchTerm();
                 if (searchTerm.toLowerCase().contains(keyword.toLowerCase())) {
                     if (count < searchResult.length) {
-                        searchResult[count] = searchable.getStringRepresentation();
-                        count++;
+                        searchResult[count++] = searchable;
                         System.out.println(searchable.getStringRepresentation());
                     } else {
                         break;
                     }
                 }
-            } else {
-                System.out.println(" ");
             }
         }
         return searchResult;
