@@ -16,12 +16,13 @@ public class SearchEngine {
             if (searchable != null) {
                 String searchTerm = searchable.getSearchTerm();
                 if (searchTerm.toLowerCase().contains(keyword.toLowerCase())) {
-                    if (count < searchResult.length) {
-                        searchResult[count++] = searchable;
-                        System.out.println(searchable.getStringRepresentation());
-                    } else {
+                    if (count >= searchResult.length) {
                         break;
                     }
+                    searchResult[count++] = searchable;
+                    System.out.println(searchable.getStringRepresentation());
+
+
                 }
             }
         }
