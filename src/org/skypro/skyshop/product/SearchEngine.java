@@ -63,14 +63,13 @@ public class SearchEngine {
                 if (score > found) {
                     found = score;
                     bestResult = searchable;
-                    System.out.println(bestResult.getStringRepresentation());
                 }
             }
         }
-
         if (bestResult == null) {
             throw new BestResultNotFound();
         }
+        System.out.println(bestResult.getStringRepresentation());
         return bestResult;
     }
 }
