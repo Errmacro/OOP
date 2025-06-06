@@ -50,26 +50,24 @@ public class SearchEngine {
 
     public Searchable findBestMatch(String keyword) throws BestResultNotFound {
         Searchable bestResult = null;
-        int score = 0;
-        int index = 0;
         int found = 0;
         for (Searchable searchable : searchables) {
             if (searchable != null) {
                 String str = searchable.getSearchTerm().toLowerCase();
-                String substr = keyword.toLowerCase();
-                int substrIndex = str.indexOf(substr, index);
-                while (substrIndex != -1) {
+                int score = 0;
+                int index = 0;
+                while ((index = str.indexOf(keyword.toLowerCase(), index)) != -1) {
                     score++;
-                    index = substrIndex + substr.length();
-                    substrIndex = str.indexOf(substr, index);
-                    if (score > found) {
-                        found = score;
-                        bestResult = searchable;
-                        System.out.println(bestResult.getStringRepresentation());
-                    }
+                    index++;
+                }
+                if (score > found) {
+                    found = score;
+                    bestResult = searchable;
+                    System.out.println(bestResult.getStringRepresentation());
                 }
             }
         }
+
         if (bestResult == null) {
             throw new BestResultNotFound();
         }
