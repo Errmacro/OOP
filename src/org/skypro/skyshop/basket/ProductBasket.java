@@ -14,16 +14,6 @@ public class ProductBasket {
         size = 0;
     }
 
-    public void addToBasket(Product product) {
-        if (size < products.length) {
-            products[size] = product;
-            size++;
-            System.out.println("Продукт "+product.getProductName()+" успешно добавлен в корзину");
-        } else {
-            System.out.println("Невозможно добавить продукт "+product.getProductName()+". Корзина переполнена.");
-        }
-    }
-
     public int countTotalPrice() {
         int sum = 0;
         for (Product product : products) {
@@ -77,6 +67,20 @@ public class ProductBasket {
     public void cleanBasket() {
         Arrays.fill(products, null);
         System.out.println("Корзина пуста");
+    }
+
+    public void addToBasket(Product product){
+        if (product != null) {
+            if (size < products.length) {
+                products[size] = product;
+                size++;
+                System.out.println("Продукт "+product.getProductName()+" успешно добавлен в корзину");
+            } else {
+                System.out.println("Невозможно добавить продукт "+product.getProductName()+". Корзина переполнена.");
+            }
+        } else {
+            System.out.println("Попытка добавить несуществующий продукт в корзину!");
+        }
     }
 
 
