@@ -15,7 +15,12 @@ public class App {
             System.out.println("Ошибка при создании продукта: " + e.getMessage());
         }
         FixPriceProduct pencil = new FixPriceProduct("Ручка синяя", 85);
-        SimpleProduct clue = new SimpleProduct("Клей", 110);
+        SimpleProduct clue = null;
+        try {
+            clue = new SimpleProduct("Клей", -110);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка при создании продукта: " + e.getMessage());
+        }
         DiscountedProduct markerSet = new DiscountedProduct("Набор фломастеров", 320, 10);
         DiscountedProduct copyBook = null;
         try {
@@ -58,7 +63,15 @@ public class App {
         try {
             wishList.findBestMatch(keyword);
         } catch (BestResultNotFound e) {
-            System.out.println("Ничего подходящего не нашлось");
+            System.out.println(e.getMessage());
+        }
+
+        String term = "клей конторский";
+        try {
+            wishList.findBestMatch(term);
+        } catch (BestResultNotFound e) {
+            System.out.println(e.getMessage());
         }
     }
+
 }
