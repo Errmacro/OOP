@@ -8,6 +8,12 @@ public class DiscountedProduct extends Product {
         super(productName, productPrice);
         this.discount=discount;
         this.productPrice=productPrice;
+        if (productPrice <=0) {
+            throw new IllegalArgumentException("Некорректная стоимость продукта");
+        }
+        if (discount <0||discount>100) {
+            throw new IllegalArgumentException("Некорректный коэффициент скидок");
+        }
     }
 
     @Override
