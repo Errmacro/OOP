@@ -7,9 +7,10 @@ import org.skypro.skyshop.product.SimpleProduct;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 public class ProductBasket {
-    private final ArrayList<Product> products;
+    private final List<Product> products;
 
 
     public ProductBasket() {
@@ -29,7 +30,7 @@ public class ProductBasket {
     public int countSpecial() {
         int count = 0;
         for (Product product : products) {
-            if ((product != null) && (product.isSpecial())) {
+            if (product != null && product.isSpecial()) {
                 count++;
             }
         }
@@ -52,7 +53,7 @@ public class ProductBasket {
 
     public boolean findProduct(String productName) {
         for (Product product : products) {
-            if ((product != null) && (product.getProductName().equalsIgnoreCase(productName))) {
+            if (product != null && product.getProductName().equalsIgnoreCase(productName)) {
                 System.out.println("Товар " + product.getProductName() + " найден!");
                 return true;
             }
@@ -80,9 +81,9 @@ public class ProductBasket {
         }
     }
 
-    public ArrayList<Product> removeFromBasket(String productToRemove) {
+    public List<Product> removeFromBasket(String productToRemove) {
         Iterator<Product> iterator = products.iterator();
-        ArrayList<Product> removedProduct = new ArrayList<>();
+        List<Product> removedProduct = new ArrayList<>();
         while (iterator.hasNext()) {
             Product product = iterator.next();
             if (product.getProductName().contains(productToRemove)) {
