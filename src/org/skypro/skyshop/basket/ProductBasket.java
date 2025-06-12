@@ -88,21 +88,24 @@ public class ProductBasket {
             Product product = iterator.next();
             if (product.getProductName().contains(productToRemove)) {
                 removedProduct.add(product);
-                System.out.println("Продукт " + product.getProductName() + " успешно удален из корзины");
                 iterator.remove();
             }
         }
-        if (removedProduct.isEmpty()) {
-            System.out.println("Список пуст");
-        } else {
-            for (Product product : removedProduct) {
-                System.out.println(product);
+        return removedProduct;
+    }
 
+    public void printRemoved(List<Product> removed){
+        if (removed.isEmpty()){
+            System.out.println("Список удаленных продуктов пуст");
+        }else {
+            System.out.println("Список удаленных продуктов: ");
+            for (Product product : removed) {
+                System.out.println(product.getProductName());
             }
-            return removedProduct;
         }
-        return null;
     }
 
 
 }
+
+

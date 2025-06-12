@@ -6,10 +6,12 @@ import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.product.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class App {
     public static void main(String[] args) {
         ProductBasket pul = new ProductBasket();
+        ProductBasket deleted = new ProductBasket();
         SimpleProduct book = null;
         try {
             book = new SimpleProduct("Книга синяя", 500);
@@ -46,37 +48,42 @@ public class App {
 //        pul.cleanBasket();
 //        pul.showTotalBasket();
 //        pul.findProduct("Тетрадь");
-        pul.removeFromBasket("синяя");
+        String toRemoveA = "синяя";
+        List<Product> removedProduct = pul.removeFromBasket(toRemoveA);
+        pul.printRemoved(removedProduct);
         pul.showTotalBasket();
-        pul.removeFromBasket("красная");
 
-//        SearchEngine wishList = new SearchEngine();
-//        wishList.addToSearchable(book);
-//        wishList.addToSearchable(pencil);
-//        wishList.addToSearchable(clue);
-//        wishList.addToSearchable(markerSet);
-//        wishList.addToSearchable(copyBook);
-//        wishList.addToSearchable(livroFortress);
-//        wishList.addToSearchable(livroBridge);
-//        wishList.addToSearchable(cola);
-//        wishList.addToSearchable(superCola);
-////
-////
-//        wishList.showSearchable();//Проверяю все ли добавлено в массив
-//        String keyword = "книга";
-//        wishList.searchByKeyword(keyword);
-////        try {
-//            wishList.findBestMatch(keyword);
-//        } catch (BestResultNotFound e) {
-//            System.out.println(e.getMessage());
-//        }
+        String toRemoveB = "красная";
+        List<Product> deletedProduct = pul.removeFromBasket(toRemoveB);
+        pul.printRemoved(deletedProduct);
+
+        SearchEngine wishList = new SearchEngine();
+        wishList.addToSearchable(book);
+        wishList.addToSearchable(pencil);
+        wishList.addToSearchable(clue);
+        wishList.addToSearchable(markerSet);
+        wishList.addToSearchable(copyBook);
+        wishList.addToSearchable(livroFortress);
+        wishList.addToSearchable(livroBridge);
+        wishList.addToSearchable(cola);
+        wishList.addToSearchable(superCola);
 //
-//        String term = "клей конторский";
-//        try {
-//            wishList.findBestMatch(term);
-//        } catch (BestResultNotFound e) {
-//            System.out.println(e.getMessage());
-//        }
+//
+        wishList.showSearchable();//Проверяю все ли добавлено в массив
+        String keyword = "клей";
+        wishList.searchByKeyword(keyword);
+        try {
+            wishList.findBestMatch(keyword);
+        } catch (BestResultNotFound e) {
+            System.out.println(e.getMessage());
+        }
+
+        String term = "клей конторский";
+        try {
+            wishList.findBestMatch(term);
+        } catch (BestResultNotFound e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }

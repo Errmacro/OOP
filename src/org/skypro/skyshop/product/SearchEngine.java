@@ -3,17 +3,18 @@ package org.skypro.skyshop.product;
 import org.skypro.skyshop.exceptions.BestResultNotFound;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SearchEngine {
-    private final ArrayList<Searchable> searchables;
+    private final List<Searchable> searchables;
     private int size;
 
     public SearchEngine() {
         searchables = new ArrayList<>();
     }
 
-    public ArrayList<Searchable> searchByKeyword(String keyword) {
-        ArrayList<Searchable> searchResult = new ArrayList<>();
+    public List<Searchable> searchByKeyword(String keyword) {
+        List<Searchable> searchResult = new ArrayList<>();
         System.out.println("Результаты поиска: ");
         for (Searchable searchable : searchables) {
             if (searchable != null) {
