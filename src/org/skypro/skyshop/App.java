@@ -50,12 +50,12 @@ public class App {
 //        pul.findProduct("Тетрадь");
         String toRemoveA = "синяя";
         List<Product> removedProduct = pul.removeFromBasket(toRemoveA);
-        pul.printRemoved(removedProduct);
+        printRemoved(removedProduct);
         pul.showTotalBasket();
 
         String toRemoveB = "красная";
         List<Product> deletedProduct = pul.removeFromBasket(toRemoveB);
-        pul.printRemoved(deletedProduct);
+        printRemoved(deletedProduct);
 
         SearchEngine wishList = new SearchEngine();
         wishList.addToSearchable(book);
@@ -83,6 +83,17 @@ public class App {
             wishList.findBestMatch(term);
         } catch (BestResultNotFound e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public static void printRemoved(List<Product> removed) {
+        if (removed.isEmpty()) {
+            System.out.println("Список удаленных продуктов пуст");
+        } else {
+            System.out.println("Список удаленных продуктов: ");
+            for (Product product : removed) {
+                System.out.println(product.getProductName());
+            }
         }
     }
 
