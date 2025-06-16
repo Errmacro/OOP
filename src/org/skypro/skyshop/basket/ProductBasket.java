@@ -91,18 +91,7 @@ public class ProductBasket {
                 iterator.remove();
             }
         }
-        return removedProduct.isEmpty()?new ArrayList<>():removedProduct;
-    }
-
-    public void printRemoved(List<Product> removed) {
-        if (removed.isEmpty()) {
-            System.out.println("Список удаленных продуктов пуст");
-        } else {
-            System.out.println("Список удаленных продуктов: ");
-            for (Product product : removed) {
-                System.out.println(product.getProductName());
-            }
-        }
+        return removedProduct;
     }
 
 
