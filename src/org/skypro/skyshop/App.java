@@ -42,7 +42,7 @@ public class App {
         pul.addToBasket(markerSet);
         pul.addToBasket(copyBook);
         pul.showTotalBasket();
-//        pul.showSpecialsQuantity();
+        pul.showSpecialsQuantity();
 //        pul.findProduct("Тетрадь");
 //        pul.findProduct("Бумага цветная");
 //        pul.cleanBasket();
