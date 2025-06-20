@@ -7,11 +7,11 @@ import org.skypro.skyshop.product.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class App {
     public static void main(String[] args) {
         ProductBasket pul = new ProductBasket();
-        ProductBasket deleted = new ProductBasket();
         SimpleProduct book = null;
         try {
             book = new SimpleProduct("Книга синяя", 500);
@@ -36,11 +36,11 @@ public class App {
         Article livroBridge = new Article("Мост на Дрине", "Книга о вечности и людских судьбах");
         Article cola = new Article("Клей канцелярский", "Мощный клей - даже в воде не растворяется");
         Article superCola = new Article("Клей момент", "В два раза больше мощности");
-        pul.addToBasket(book);
-        pul.addToBasket(pencil);
-        pul.addToBasket(clue);
-        pul.addToBasket(markerSet);
-        pul.addToBasket(copyBook);
+        pul.addToBasket("Книги",book);
+        pul.addToBasket("Карандаши",pencil);
+        pul.addToBasket("Химия",clue);
+        pul.addToBasket("Карандаши",markerSet);
+        pul.addToBasket("Тетради",copyBook);
         pul.showTotalBasket();
         pul.showSpecialsQuantity();
 //        pul.findProduct("Тетрадь");
@@ -49,28 +49,28 @@ public class App {
 //        pul.showTotalBasket();
 //        pul.findProduct("Тетрадь");
         String toRemoveA = "синяя";
-        List<Product> removedProduct = pul.removeFromBasket(toRemoveA);
-        printRemoved(removedProduct);
+        Map<String, List<Product>> removedProduct = pul.removeFromBasket(toRemoveA);
+//        printRemoved(removedProduct);
         pul.showTotalBasket();
-
-        String toRemoveB = "красная";
-        List<Product> deletedProduct = pul.removeFromBasket(toRemoveB);
-        printRemoved(deletedProduct);
-
+//
+//        String toRemoveB = "красная";
+//        List<Product> deletedProduct = pul.removeFromBasket(toRemoveB);
+//        printRemoved(deletedProduct);
+//
         SearchEngine wishList = new SearchEngine();
-        wishList.addToSearchable(book);
-        wishList.addToSearchable(pencil);
-        wishList.addToSearchable(clue);
-        wishList.addToSearchable(markerSet);
-        wishList.addToSearchable(copyBook);
-        wishList.addToSearchable(livroFortress);
-        wishList.addToSearchable(livroBridge);
-        wishList.addToSearchable(cola);
-        wishList.addToSearchable(superCola);
-//
-//
+        wishList.addToSearchable("Книги",book);
+        wishList.addToSearchable("Карандаши",pencil);
+        wishList.addToSearchable("Химия",clue);
+        wishList.addToSearchable("Карандаши",markerSet);
+        wishList.addToSearchable("Тетради",copyBook);
+        wishList.addToSearchable("Книги",livroFortress);
+        wishList.addToSearchable("Книги",livroBridge);
+        wishList.addToSearchable("Химия",cola);
+        wishList.addToSearchable("Химия",superCola);
+////
+////
         wishList.showSearchable();//Проверяю все ли добавлено в массив
-        String keyword = "клей";
+        String keyword = "книга";
         wishList.searchByKeyword(keyword);
         try {
             wishList.findBestMatch(keyword);
@@ -85,16 +85,16 @@ public class App {
             System.out.println(e.getMessage());
         }
     }
-
-    public static void printRemoved(List<Product> removed) {
-        if (removed.isEmpty()) {
-            System.out.println("Список удаленных продуктов пуст");
-        } else {
-            System.out.println("Список удаленных продуктов: ");
-            for (Product product : removed) {
-                System.out.println(product.getProductName());
-            }
-        }
-    }
-
+//
+//    public static void printRemoved(Map<String, List<Product>> removed) {
+//        if (removed.isEmpty()) {
+//            System.out.println("Список удаленных продуктов пуст");
+//        } else {
+//            System.out.println("Список удаленных продуктов: ");
+//            for (Product product : removed) {
+//                System.out.println(product.getProductName());
+//            }
+//        }
+//    }
+//
 }
