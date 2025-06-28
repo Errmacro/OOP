@@ -36,11 +36,11 @@ public class App {
         Article livroBridge = new Article("Мост на Дрине", "Книга о вечности и людских судьбах");
         Article cola = new Article("Клей канцелярский", "Мощный клей - даже в воде не растворяется");
         Article superCola = new Article("Клей момент", "В два раза больше мощности");
-        pul.addToBasket("Книги",book);
-        pul.addToBasket("Карандаши",pencil);
-        pul.addToBasket("Химия",clue);
-        pul.addToBasket("Карандаши",markerSet);
-        pul.addToBasket("Тетради",copyBook);
+        pul.addToBasket("Книги", book);
+        pul.addToBasket("Карандаши", pencil);
+        pul.addToBasket("Химия", clue);
+        pul.addToBasket("Карандаши", markerSet);
+        pul.addToBasket("Тетради", copyBook);
         pul.showTotalBasket();
         pul.showSpecialsQuantity();
 //        pul.findProduct("Тетрадь");
@@ -58,18 +58,18 @@ public class App {
 //        printRemoved(deletedProduct);
 //
         SearchEngine wishList = new SearchEngine();
-        wishList.addToSearchable("Книги",book);
-        wishList.addToSearchable("Карандаши",pencil);
-        wishList.addToSearchable("Химия",clue);
-        wishList.addToSearchable("Карандаши",markerSet);
-        wishList.addToSearchable("Тетради",copyBook);
-        wishList.addToSearchable("Книги",livroFortress);
-        wishList.addToSearchable("Книги",livroBridge);
-        wishList.addToSearchable("Химия",cola);
-        wishList.addToSearchable("Химия",superCola);
+        wishList.addToSearchable(book);
+        wishList.addToSearchable(pencil);
+        wishList.addToSearchable(clue);
+        wishList.addToSearchable(markerSet);
+        wishList.addToSearchable(copyBook);
+        wishList.addToSearchable(livroBridge);
+        wishList.addToSearchable(livroFortress);
+        wishList.addToSearchable(cola);
+        wishList.addToSearchable(superCola);
+
 ////
 ////
-        wishList.showSearchable();//Проверяю все ли добавлено в массив
         String keyword = "книга";
         wishList.searchByKeyword(keyword);
         try {
