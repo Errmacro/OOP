@@ -14,17 +14,14 @@ public class SearchEngine {
 
     public Set<Searchable> searchByKeyword(String keyword) {
         Set<Searchable> searchResult = new TreeSet<>(new SearchableComparator());
-        System.out.println("Результаты поиска: ");
         for (Searchable searchable : searchables) {
             if (searchable != null) {
                 String searchTerm = searchable.getSearchTerm();
                 if (searchTerm.toLowerCase().contains(keyword.toLowerCase())) {
-                    System.out.println(searchable.getStringRepresentation());
                     searchResult.add(searchable);
                 }
             }
         }
-
         return searchResult;
     }
 

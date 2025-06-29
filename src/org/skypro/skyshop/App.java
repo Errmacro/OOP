@@ -34,6 +34,7 @@ public class App {
         }
         Article livroFortress = new Article("Крепость", "Книга о поиске себя");
         Article livroBridge = new Article("Мост на Дрине", "Книга о вечности и людских судьбах");
+        Article beograd = new Article("Магия Белграда","Книга о неповторимом духе древнего города");
         Article cola = new Article("Клей канцелярский", "Мощный клей - даже в воде не растворяется");
         Article superCola = new Article("Клей момент", "В два раза больше мощности");
         pul.addToBasket("Книги", book);
@@ -67,16 +68,20 @@ public class App {
         wishList.addToSearchable(livroFortress);
         wishList.addToSearchable(cola);
         wishList.addToSearchable(superCola);
+        wishList.addToSearchable(beograd);
 
 ////
 ////
         String keyword = "книга";
         wishList.searchByKeyword(keyword);
+        System.out.println("Результаты поиска:");
+        System.out.println(wishList.searchByKeyword(keyword));
         try {
             wishList.findBestMatch(keyword);
         } catch (BestResultNotFound e) {
             System.out.println(e.getMessage());
         }
+
 
         String term = "клей конторский";
         try {
