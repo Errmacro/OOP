@@ -78,7 +78,7 @@ public class ProductBasket {
 
     public void addToBasket(String name, Product product) {
         if (product != null) {
-            List<Product> productList = products.getOrDefault(name, new ArrayList<>());
+            List<Product> productList = products.getOrDefault(name, new ArrayList<>());//Разъяснить про computeIfAbsent;
             productList.add(product);
             products.put(name, productList);
             System.out.println("Товар " + product.getProductName() + " успешно добавлен в корзину " + name);
