@@ -23,11 +23,10 @@ public class ProductBasket {
     }
 
     private int countSpecial() {
-        return products.values().stream()
+        return (int) products.values().stream()
                 .flatMap(List::stream)
                 .filter(product -> product != null && product.isSpecial())
-                .mapToInt(product -> 1)
-                .sum();
+                .count();
     }
 
     public void showBasketContent() {
