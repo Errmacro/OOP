@@ -42,9 +42,9 @@ public class App {
         pul.addToBasket("Химия", clue);
         pul.addToBasket("Карандаши", markerSet);
         pul.addToBasket("Тетради", copyBook);
-        pul.showTotalBasket();
+        pul.showBasketContent();
         pul.showSpecialsQuantity();
-//        pul.findProduct("Тетрадь");
+        pul.findProduct("Тетрадь");
 //        pul.findProduct("Бумага цветная");
 //        pul.cleanBasket();
 //        pul.showTotalBasket();
@@ -52,7 +52,7 @@ public class App {
         String toRemoveA = "синяя";
         Map<String, List<Product>> removedProduct = pul.removeFromBasket(toRemoveA);
 //        printRemoved(removedProduct);
-        pul.showTotalBasket();
+        pul.showBasketContent();
 //
 //        String toRemoveB = "красная";
 //        List<Product> deletedProduct = pul.removeFromBasket(toRemoveB);
